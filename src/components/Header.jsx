@@ -1,9 +1,9 @@
 import { Search,ShoppingCart } from "lucide-react";
 function Header() {
   return (
-    <header className="lg:bg-amber-500 md:bg-amber-300 rounded fixed z-50 w-full flex p-4 items-center">
+    <header className="lg:bg-amber-500 md:bg-amber-300 rounded fixed z-50 w-full flex p-4 items-center my-1 shadow-md">
     
-           <h1 className="lg:text-3xl md:text-xl font-bold italic text-gray-800 "> <span className="text-white font-bold">JA</span>HA Foods</h1>
+           <h1 className="lg:text-3xl md:text-xl font-bold italic text-gray-800 "> <span className="text-red-500 font-bold">JA</span>HA Foods</h1>
            <div className="flex mx-auto lg:w-150">
             <Search className="text-gray-500 bg-white h-9 w-8 rounded-l-sm" />
            <input type="search" placeholder="Search..." className="bg-white text-gray-800 placeholder:text-gray-500 border border-transparent focus:outline-none  rounded-r-md md:w-full " />
