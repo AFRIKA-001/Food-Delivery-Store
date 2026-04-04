@@ -1,5 +1,8 @@
 import { Search,ShoppingCart } from "lucide-react";
 function Header() {
+
+
+
   return (
     <header className="lg:bg-amber-500 md:bg-amber-300 rounded fixed z-50 w-full flex p-4 items-center my-1 shadow-md">
     
@@ -10,7 +13,7 @@ function Header() {
            </div>
       
         <button className=" h-8 w-8 ml-auto cursor-pointer active:bg-amber-700 rounded mx-4 border shadow-md bg-amber-500 flex text-white">
-          <ShoppingCart /><span className="ml-1 text-stone-900">{0}</span>
+          <ShoppingCart className="h-8 w-8" /><span className="ml-1 border-red-600 rounded-sm h-5 w-3 text-center bg-red-600 text-stone-900 text-sm">{0}</span>
         </button>
    
      

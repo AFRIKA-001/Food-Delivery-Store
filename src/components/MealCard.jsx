@@ -19,7 +19,7 @@ function MealCard({meals}) {
            <p className="text-orange-600">{formatPrice.format(meals.price)}</p>
         <p className="font-normal text-stone-950/400  line-clamp-2">{meals.description}</p>
      
-      <button className=" text-xl border rounded hover:bg-amber-500 active:bg-orange-600 bg-amber-400 mt-auto cursor-pointer">
+      <button className=" text-xl border rounded hover:bg-amber-500 active:bg-orange-600 bg-amber-400 mt-auto cursor-pointer focus:border-amber-600">
         + Add to cart
       </button>
 
