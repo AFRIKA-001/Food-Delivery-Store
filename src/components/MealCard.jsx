@@ -1,10 +1,20 @@
-    const formatPrice = new Intl.NumberFormat("en-us",{
+  import { useContext } from "react";
+import CartContext from "../store/CartContext";
+  
+  
+  const formatPrice = new Intl.NumberFormat("en-us",{
         style:"currency",
         currency:"ksh"
     });
 
 
 function MealCard({meals}) {
+   const cartContext = useContext(CartContext);
+
+   function handleAddMealToCart(){
+    cartContext.AddItems(meals)
+  
+   }
     const URL = "http://localhost:3000";
   return (
     <div className=' border rounded-sm line-clamp-2 hover:shadow-2xl object-cover h-120 bg-white 
@@ -19,7 +29,7 @@ function MealCard({meals}) {
            <p className="text-orange-600">{formatPrice.format(meals.price)}</p>
         <p className="font-normal text-stone-950/400  line-clamp-2">{meals.description}</p>
      
-      <button className=" text-xl border rounded hover:bg-amber-500 active:bg-orange-600 bg-amber-400 mt-auto cursor-pointer focus:border-amber-600">
+      <button onClick={handleAddMealToCart} className=" text-xl border rounded hover:bg-amber-500 active:bg-orange-600 bg-amber-400 mt-auto cursor-pointer focus:border-amber-600">
         + Add to cart
       </button>
 

@@ -1,5 +1,11 @@
 import { Search,ShoppingCart } from "lucide-react";
+import { useContext } from "react";
+import CartContext from "../store/CartContext";
 function Header() {
+  const cartContext =useContext(CartContext);
+  const totalCartItems = cartContext.items.reduce((totalNumberOfItems,item)=>{
+    return  totalNumberOfItems + item.quantity;
+  },0)
 
 
 
@@ -12,8 +18,8 @@ function Header() {
            <input type="search" placeholder="Search..." className="bg-white text-gray-800 placeholder:text-gray-500 border border-transparent focus:outline-none  rounded-r-md md:w-full " />
            </div>
       
-        <button className=" h-8 w-8 ml-auto cursor-pointer active:bg-amber-700 rounded mx-4 border shadow-md bg-amber-500 flex text-white">
-          <ShoppingCart className="h-8 w-8" /><span className="ml-1 border-red-600 rounded-sm h-5 w-3 text-center bg-red-600 text-stone-900 text-sm">{0}</span>
+        <button className=" h-8 w-9 ml-auto cursor-pointer active:bg-amber-700 rounded mx-4 border shadow-md bg-amber-500 flex text-white">
+          <ShoppingCart className="h-8 w-8" /><span className="ml-1 font-extrabold rounded-sm h-5 w-3 text-center text-stone-900 text-sm">{totalCartItems}</span>
         </button>
    
      
