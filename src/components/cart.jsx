@@ -30,11 +30,9 @@ function addItems(item){
 function removeItems(id){
   cartContext.RemoveItems(id);
 }
-
-const modalStyle = 'w-205 h-125 mx-auto my-auto backdrop:bg-stone-900/90 rounded-lg bg-slate-300 max-h-[700px] '
 const buttonStyles = "border rounded bg-amber-400 hover:bg-amber-500 active:bg-amber-600 p-1 gap-6 w-40 text-slate-100 text-xl"
 
-  return <Modal open={userProgressContext.Progress === "cart"} className={modalStyle}>
+  return <Modal open={userProgressContext.Progress === "cart"} className="w-205 h-125 mx-auto my-auto backdrop:bg-stone-900/90 rounded-lg bg-slate-300 scrollbar-none">
     <div className=' p-2 my-4 '>
 <h1 className='text-3xl font-bold font-mono py- text-center'>Your Cart Items</h1>
 <ul className='font-bold text-xl  '>
@@ -59,7 +57,7 @@ const buttonStyles = "border rounded bg-amber-400 hover:bg-amber-500 active:bg-a
      </li>
     ))}
 </ul>
-<p className='text-xl font-serif font-extrabold tracking-tight border-t pt-2 '>Total: {formatPrice.format(cartTotal)}</p>
+<p className='text-3xl font-serif font-extrabold tracking-tight border-t pt-2 '>Total: {formatPrice.format(cartTotal)}</p>
 <button onClick={CloseCart} className={buttonStyles}>close</button>
 <button  onClick={CloseCheckout} className={buttonStyles}>Go to Checkout</button>
 </div>
