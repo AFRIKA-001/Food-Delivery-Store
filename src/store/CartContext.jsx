@@ -61,13 +61,13 @@ export function CartContextProvider({children}) {
     dispatchCartItemsAction({type:"ADD_ITEM",item:item})
 
    }
-   function RemoveItem(id){
+   function RemoveItems(id){
     dispatchCartItemsAction({type:"REMOVE_ITEM",id:id})
    }
     const cartContext={
     items:cartState.items,
     AddItems,
-    RemoveItem
+    RemoveItems
    }
   return (
     <>
