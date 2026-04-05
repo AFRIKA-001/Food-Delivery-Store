@@ -5,7 +5,7 @@ function MealFetching() {
     const[meals,setMeals]=useState([]);
     useEffect(()=>{
        async function fetchMeals(){
-            const response = await fetch("https://food-delivery-store-wj8w.onrender.com/");
+            const response = await fetch("https://food-delivery-store-wj8w.onrender.com/meals");
             const data = await response.json();
             setMeals(data)
         }
