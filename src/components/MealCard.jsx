@@ -15,7 +15,7 @@ function MealCard({meals}) {
     cartContext.AddItems(meals)
   
    }
-    const URL = "http://localhost:3000";
+    const URL = "https://food-delivery-store-wj8w.onrender.com/";
   return (
     <div className=' border rounded-sm line-clamp-2 hover:shadow-2xl object-cover md:h-60 lg:h-120 bg-white 
      text-slate-800 font-medium font-sans flex flex-col  hover:border-amber-500  
