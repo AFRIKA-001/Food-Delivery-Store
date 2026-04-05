@@ -48,7 +48,7 @@ const buttonStyles = "border rounded bg-amber-400 hover:bg-amber-500 active:bg-a
          <button onClick={()=>addItems(item)} className='text-3xl border h-10 my-9 lg:w-15 bg-amber-300 active:bg-amber-600'>+</button>
         <span className='text-red-600 mt-10 line-clamp-1'>{item.quantity}</span> 
         <button onClick={()=>removeItems(item.id)}  className='text-3xl border h-10 my-9 md:w-10 lg:w-15 bg-amber-300 active:bg-amber-700'>-</button>
-       <button onClick={()=>removeItems(item.id)}  className='border  lg:h-10 my-9 rounded bg-red-600 active:bg-red-900 lg:uppercase tracking-wider'>Remove</button>
+       <button onClick={()=>removeItems(item.id)}  className='border  h-10 my-9 rounded bg-red-600 active:bg-red-900 lg:uppercase tracking-wider'>Remove</button>
        </div>
       
   
