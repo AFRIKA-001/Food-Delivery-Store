@@ -32,7 +32,7 @@ function removeItems(id){
 }
 const buttonStyles = "border rounded bg-amber-400 hover:bg-amber-500 active:bg-amber-600 p-1 gap-6 w-40 text-slate-100 text-xl"
 
-  return <Modal open={userProgressContext.Progress === "cart"} className="w-205 h-125 mx-auto my-auto backdrop:bg-stone-900/90 rounded-lg bg-slate-300 scrollbar-none">
+  return <Modal open={userProgressContext.Progress === "cart"} className="lg:w-205 md:w-40 h-125 mx-auto my-auto backdrop:bg-stone-900/90 rounded-lg bg-slate-300 scrollbar-none">
     <div className=' p-2 my-4 '>
 <h1 className='text-3xl font-bold font-mono py- text-center'>Your Cart Items</h1>
 <ul className='font-bold text-xl  '>
@@ -41,14 +41,14 @@ const buttonStyles = "border rounded bg-amber-400 hover:bg-amber-500 active:bg-a
     
        <img className='h-30 w-30 rounded-4xl p-1'
           src={`https://food-delivery-store-wj8w.onrender.com/${item.image}`} alt="food image" />
-       <span className='pt-10 px-4 font-sans md:text-sm lg:text-xl'>{item.name} - </span> 
+       <span className='pt-10 px-4 font-sans text-[15px]'>{item.name} - </span> 
 
   
-       <div className='flex gap-4 '>
+       <div className='flex md:gap-2 lg:gap-4 '>
          <button onClick={()=>addItems(item)} className='text-3xl border h-10 my-9 lg:w-15 bg-amber-300 active:bg-amber-600'>+</button>
         <span className='text-red-600 mt-10 line-clamp-1'>{item.quantity}</span> 
-        <button onClick={()=>removeItems(item.id)}  className='text-3xl border h-10 my-9  lg:w-15 bg-amber-300 active:bg-amber-700'>-</button>
-       <button onClick={()=>removeItems(item.id)}  className='border h-10 my-9 rounded bg-red-600 active:bg-red-900 uppercase tracking-wider'>Remove</button>
+        <button onClick={()=>removeItems(item.id)}  className='text-3xl border h-10 my-9 md:w-10 lg:w-15 bg-amber-300 active:bg-amber-700'>-</button>
+       <button onClick={()=>removeItems(item.id)}  className='border  lg:h-10 my-9 rounded bg-red-600 active:bg-red-900 lg:uppercase tracking-wider'>Remove</button>
        </div>
       
   
