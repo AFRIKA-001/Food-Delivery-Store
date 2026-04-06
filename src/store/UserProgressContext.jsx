@@ -2,12 +2,15 @@ import {createContext ,useState } from 'react'
 
 
 
+
 const UserProgressContext = createContext({
   Progress:"",
   showCart:()=>{},
   hideCart:()=>{},
   showCheckOut:()=>{},
-  hideCheckOut:()=>{}
+  hideCheckOut:()=>{},
+  ShowSuccessMessage:()=>{},
+  HideSuccessMessage:()=>{}
 })
 
 export function UserProgressContextProvider({children}) {
@@ -25,12 +28,21 @@ export function UserProgressContextProvider({children}) {
   function hideCheckOut(){
     setUserProgress("");
   }
+
+  function ShowSuccessMessage(){
+    setUserProgress("success")
+  }
+  function HideSuccessMessage(){
+    setUserProgress('')
+  }
   const userProgressContext={
     Progress:userProgress,
     showCart,
     hideCart,
     showCheckOut,
-    hideCheckOut
+    hideCheckOut,
+    ShowSuccessMessage,
+    HideSuccessMessage
   }
 
   return (

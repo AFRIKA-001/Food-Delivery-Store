@@ -49,6 +49,9 @@ fetch('http:localhost:3000/orders',{
         e.target.reset();
     }
  }
+ function handleShowModal(){
+    userProgessContext.ShowSuccessMessage();
+ }
 
   
   return <Modal open={userProgessContext.Progress === 'checkout'}className='m-auto w-200 h-200 rounded-lg  backdrop:bg-stone-900/90 bg-slate-200'>
@@ -67,7 +70,7 @@ fetch('http:localhost:3000/orders',{
 </div>
 <div className='pt-4 flex gap-6 '>
     <button type='button' onClick={handleClose} className='border rounded bg-gray-400 hover:bg-gray-600 active:bg-gray-900' >close</button>
-    <button className='border rounded bg-amber-300 hover:bg-amber-500 active:bg-amber-600'>Submit Order</button>
+    <button  onClick={handleShowModal} className='border rounded bg-amber-300 hover:bg-amber-500 active:bg-amber-600'>Submit Order</button>
 </div>
 </form>
   </Modal>

@@ -7,6 +7,7 @@ import Cart from './components/cart.jsx';
 import { LoginContextProvider } from './store/LoginContext.jsx';
 import Login from './components/Login.jsx';
 import CheckOut from './components/Checkout.jsx';
+import SuccessMessage from './components/SuccessMessage.jsx';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
     <MealFetching />  
     <Cart/>
     <CheckOut/>
+    <SuccessMessage/>
     
     <Login/>
     </CartContextProvider>
