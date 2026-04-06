@@ -30,8 +30,20 @@ const formatPrice = new Intl.NumberFormat("en-Kenya",{
 
     const formData = new FormData(e.target)
     const data = Object.fromEntries(formData.entries());
-    console.log(data);
-    console.log(cartContext.items);
+
+//handling the POST request 
+fetch('http:localhost:3000/orders',{
+    method:'POST',
+    headers:{
+        'Content-Type':'application/json'
+    },
+    body:JSON.stringify({
+        order:cartContext.items,
+        customer:data
+    })
+});
+    // console.log(data);
+    // console.log(cartContext.items);
 
     if(formRef){
         e.target.reset();
