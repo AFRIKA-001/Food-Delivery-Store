@@ -59,7 +59,7 @@ const buttonStyles = "border rounded bg-amber-400 hover:bg-amber-500 active:bg-a
 </ul>
 <p className='text-3xl font-serif font-extrabold tracking-tight border-t pt-2 '>Total: {formatPrice.format(cartTotal)}</p>
 <button onClick={CloseCart} className={buttonStyles}>close</button>
-<button  onClick={CloseCheckout} className={buttonStyles}>Go to Checkout</button>
+       {cartContext.items.length > 0 &&<button  onClick={CloseCheckout} className={buttonStyles}>Go to Checkout</button>}
 </div>
   </Modal>
     

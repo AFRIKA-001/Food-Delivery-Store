@@ -21,6 +21,7 @@ function handleShowLogin(){
   userLoginContext.ShowLogin();
 }
 
+
   return (
     <header className="lg:bg-amber-500 md:bg-amber-300  rounded fixed z-50 w-full flex lg:p-4 items-center my-1 shadow-md">
     
