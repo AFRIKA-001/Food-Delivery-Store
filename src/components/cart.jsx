@@ -21,15 +21,22 @@ function Cart() {
 function CloseCart (){
     userProgressContext.hideCart();
 }
-function CloseCheckout(){
-  userProgressContext.hideCheckOut();
-}
+
 function addItems(item){
   cartContext.AddItems({...item,quantity:1})
 }
 function removeItems(id){
   cartContext.RemoveItems(id);
 }
+
+
+function goToCheckOut(){
+  userProgressContext.showCheckOut();
+}
+
+
+
+
 const buttonStyles = "border rounded bg-amber-400 hover:bg-amber-500 active:bg-amber-600 p-1 gap-6 w-40 text-slate-100 text-xl"
 
   return <Modal open={userProgressContext.Progress === "cart"} className="lg:w-205 md:w-40 h-125 mx-auto my-auto backdrop:bg-stone-900/90 rounded-lg bg-slate-300 scrollbar-none">
@@ -59,7 +66,7 @@ const buttonStyles = "border rounded bg-amber-400 hover:bg-amber-500 active:bg-a
 </ul>
 <p className='text-3xl font-serif font-extrabold tracking-tight border-t pt-2 '>Total: {formatPrice.format(cartTotal)}</p>
 <button onClick={CloseCart} className={buttonStyles}>close</button>
-       {cartContext.items.length > 0 &&<button  onClick={CloseCheckout} className={buttonStyles}>Go to Checkout</button>}
+ {cartContext.items.length > 0 &&<button  onClick={goToCheckOut} className={buttonStyles}>Go to Checkout</button>}
 </div>
   </Modal>
     

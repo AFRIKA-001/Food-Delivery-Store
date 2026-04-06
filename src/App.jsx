@@ -6,6 +6,7 @@ import { UserProgressContextProvider } from './store/UserProgressContext.jsx';
 import Cart from './components/cart.jsx';
 import { LoginContextProvider } from './store/LoginContext.jsx';
 import Login from './components/Login.jsx';
+import CheckOut from './components/Checkout.jsx';
 
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
     <Header />
     <MealFetching />  
     <Cart/>
+    <CheckOut/>
+    
     <Login/>
     </CartContextProvider>
     </UserProgressContextProvider>
