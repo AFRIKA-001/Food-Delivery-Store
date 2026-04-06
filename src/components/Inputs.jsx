@@ -7,7 +7,7 @@ function Inputs({label,id, ...props}) {
   return (
     <div>
       <label htmlFor={id}>{label}</label>
-      <input id={id}  {...props} required />
+      <input id={id} name={id} {...props} required />
     </div>
   )
 }

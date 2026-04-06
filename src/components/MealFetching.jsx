@@ -1,8 +1,10 @@
 import {useState,useEffect} from 'react'
 import MealCard from './MealCard';
+// import SearchBarContext from '../store/SearchBarContext';
 
 function MealFetching() {
     const[meals,setMeals]=useState([]);
+    // const searchBarContext = useContext(SearchBarContext)
     useEffect(()=>{
        async function fetchMeals(){
             const response = await fetch("https://food-delivery-store-wj8w.onrender.com/meals");
@@ -11,7 +13,10 @@ function MealFetching() {
         }
         fetchMeals();
     },[])
-
+ 
+    // const filteredMeals = meals.filter((meal)=>{
+    //     meal.name.toLowerCase().includes(searchBarContext.searchTerm.toLocaleLowerCase())
+    // })
 
   return (
       <ul className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:px-6 py-20 '>

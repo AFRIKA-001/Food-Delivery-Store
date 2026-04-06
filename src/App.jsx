@@ -8,10 +8,12 @@ import { LoginContextProvider } from './store/LoginContext.jsx';
 import Login from './components/Login.jsx';
 import CheckOut from './components/Checkout.jsx';
 import SuccessMessage from './components/SuccessMessage.jsx';
+import { SearchBarContextProvider } from './store/SearchBarContext.jsx';
 
 
 function App() {
   return (
+    <SearchBarContextProvider>
     <LoginContextProvider>
       <UserProgressContextProvider>
     <CartContextProvider>
@@ -25,6 +27,7 @@ function App() {
     </CartContextProvider>
     </UserProgressContextProvider>
     </LoginContextProvider>
+    </SearchBarContextProvider>
    
   );
 }

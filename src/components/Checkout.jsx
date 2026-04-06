@@ -31,6 +31,10 @@ const formatPrice = new Intl.NumberFormat("en-Kenya",{
     const formData = new FormData(e.target)
     const data = Object.fromEntries(formData.entries());
 
+userProgessContext.ShowSuccessMessage();
+
+
+
 //handling the POST request 
 fetch('http:localhost:3000/orders',{
     method:'POST',
@@ -49,9 +53,11 @@ fetch('http:localhost:3000/orders',{
         e.target.reset();
     }
  }
- function handleShowModal(){
-    userProgessContext.ShowSuccessMessage();
- }
+ 
+    
+    
+
+//  onClick={handleShowModal}
 
   
   return <Modal open={userProgessContext.Progress === 'checkout'}className='m-auto w-200 h-200 rounded-lg  backdrop:bg-stone-900/90 bg-slate-200'>
@@ -65,12 +71,12 @@ fetch('http:localhost:3000/orders',{
 <Inputs label='E-Mail Address' id="email" name='email' type="email"  className='rounded border'  />
 <Inputs label='Street' id="street" name='steet' type="text"  className="border flex rounded"  />
 <div className='lg:flex gap-4 lg:pt-4 '>
-    <Inputs label='Postal Code' id="postal-code"  type="text"  className='border line-clamp-1 rounded '  />
-    <Inputs label='City' id="city"  type="text"  className='border rounded flex' />
+    <Inputs label='Postal Code' id="postal-code" name='postal' type="text"  className='border line-clamp-1 rounded '  />
+    <Inputs label='Phone Number' id="city"  type="text" name='phone number' className='border rounded flex' />
 </div>
 <div className='pt-4 flex gap-6 '>
     <button type='button' onClick={handleClose} className='border rounded bg-gray-400 hover:bg-gray-600 active:bg-gray-900' >close</button>
-    <button  onClick={handleShowModal} className='border rounded bg-amber-300 hover:bg-amber-500 active:bg-amber-600'>Submit Order</button>
+     <button   className='border rounded bg-amber-300 hover:bg-amber-500 active:bg-amber-600'>Submit Order</button>
 </div>
 </form>
   </Modal>
