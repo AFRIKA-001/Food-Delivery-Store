@@ -72,7 +72,7 @@ fetch('http:localhost:3000/orders',{
 <Inputs label='Street' id="street" name='steet' type="text"  className="border flex rounded"  />
 <div className='lg:flex gap-4 lg:pt-4 '>
     <Inputs label='Postal Code' id="postal-code" name='postal' type="text"  className='border line-clamp-1 rounded '  />
-    <Inputs label='Phone Number' id="city"  type="text" name='phone number' className='border rounded flex' />
+    <Inputs label='Phone Number' id="city"  type="number" name='phone number' className='border rounded flex' />
 </div>
 <div className='pt-4 flex gap-6 '>
     <button type='button' onClick={handleClose} className='border rounded bg-gray-400 hover:bg-gray-600 active:bg-gray-900' >close</button>
