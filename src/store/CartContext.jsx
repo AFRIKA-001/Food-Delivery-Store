@@ -30,6 +30,12 @@ const updatedItems = [...state.items];
             items:updatedItems
         }
     }
+    if(action.type ==="CLEAR_CART"){
+        return{
+            ...state,
+            items:[]
+        }
+    }
 
 
     if(action.type ==="REMOVE_ITEM"){
@@ -64,10 +70,14 @@ export function CartContextProvider({children}) {
    function RemoveItems(id){
     dispatchCartItemsAction({type:"REMOVE_ITEM",id:id})
    }
+   function ClearCart(){
+    dispatchCartItemsAction({type:"CLEAR_CART"})
+   }
     const cartContext={
     items:cartState.items,
     AddItems,
-    RemoveItems
+    RemoveItems,
+    ClearCart
    }
   return (
     <>

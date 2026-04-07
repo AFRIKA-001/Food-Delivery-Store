@@ -22,7 +22,6 @@ function App() {
     <Cart/>
     <CheckOut/>
     <SuccessMessage/>
-    
     <Login/>
     </CartContextProvider>
     </UserProgressContextProvider>

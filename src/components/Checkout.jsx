@@ -33,21 +33,21 @@ const formatPrice = new Intl.NumberFormat("en-Kenya",{
 
 userProgessContext.ShowSuccessMessage();
 
-
+cartContext.ClearCart();
 
 //handling the POST request 
-fetch('http://localhost:3000/orders',{
-    method:'POST',
-    headers:{
-        'Content-Type':'application/json'
-    },
-    body:JSON.stringify({
-        order:cartContext.items,
-        customer:data
-    })
-});
-    // console.log(data);
-    // console.log(cartContext.items);
+// fetch('https://food-delivery-store-wj8w.onrender.com/orders',{
+//     method:'POST',
+//     headers:{
+//         'Content-Type':'application/json'
+//     },
+//     body:JSON.stringify({
+//         order:cartContext.items,
+//         customer:data
+//     })
+// });
+    console.log(data);
+    console.log(cartContext.items);
 
     if(formRef){
         e.target.reset();
