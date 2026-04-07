@@ -15,7 +15,7 @@ function MealFetching() {
             const response = await fetch("https://food-delivery-store-wj8w.onrender.com/meal");
 
             if(!response.ok){
-                throw new Error("Failed to fetch meals")
+                throw new Error("The system is currently under maintenance. Please try again later.");
             }
             const data = await response.json();
             setMeals(data)
@@ -35,7 +35,7 @@ if(isLoading){
 if(error){
     return(
     <div className='flex flex-col mx-auto py-60'>
-    <h2 className='text-2xl text-center font-mono '>Opps! Something went wrong🔧 </h2>
+    <h2 className='text-2xl text-center font-mono '>Opps Soory! Something went wrong🔧 </h2>
      <p className='text-center text-xl lg:text-2xl font-bold text-red-500'>{error}</p>
     </div>
 );
