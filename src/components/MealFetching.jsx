@@ -4,15 +4,42 @@ import MealCard from './MealCard';
 
 function MealFetching() {
     const[meals,setMeals]=useState([]);
+    const [error,setError] = useState();
+    const [isLoading,setIsLoading] = useState(false);
     // const searchBarContext = useContext(SearchBarContext)
     useEffect(()=>{
        async function fetchMeals(){
+
+        setIsLoading(true); 
+        try{
             const response = await fetch("https://food-delivery-store-wj8w.onrender.com/meals");
+
+            if(!response.ok){
+                throw new Error("Failed to fetch meals")
+            }
             const data = await response.json();
             setMeals(data)
+        }catch(error){
+            setError(error.message || "An error occurred while fetching meals");
         }
+
+        setIsLoading(false);
+    }
         fetchMeals();
-    },[])
+},[])
+
+if(isLoading){
+    return <p className='lg:text-center flex justify-center text-2xl lg:text-4xl py-60 font-bold'>Loading meals.......</p>
+}
+
+if(error){
+    return(
+    <div className='flex flex-col mx-auto py-60'>
+    <h2 className='text-2xl text-center font-mono '>Opps! Something went wrong🔧 </h2>
+     <p className='text-center text-2xl font-bold text-red-500'>{error}</p>
+    </div>
+);
+}
  
     // const filteredMeals = meals.filter((meal)=>{
     //     meal.name.toLowerCase().includes(searchBarContext.searchTerm.toLocaleLowerCase())
@@ -24,6 +51,10 @@ function MealFetching() {
             <MealCard meals={meal} />
         </li>))}
       </ul>
+
+      
+      
+
     
   )
 }
