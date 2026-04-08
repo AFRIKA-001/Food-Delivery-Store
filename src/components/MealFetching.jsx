@@ -1,5 +1,6 @@
 import {useState,useEffect} from 'react'
 import MealCard from './MealCard';
+import { Loader2 } from 'lucide-react';
 // import SearchBarContext from '../store/SearchBarContext';
 
 
@@ -30,7 +31,9 @@ function MealFetching() {
 },[])
 
 if(isLoading){
-    return <p className='lg:text-center flex justify-center text-2xl lg:text-4xl py-60 font-bold'>Loading meals.......</p>
+    return <p className=' flex justify-center gap-2 items-center text-2xl font-thin py-80 text-orange-500'>
+        <Loader2 className='animate-[spin_2s_linear_infinite] h-12 w-12 text-orange-500' /> Processing
+        </p>
 }
 
 if(error){
