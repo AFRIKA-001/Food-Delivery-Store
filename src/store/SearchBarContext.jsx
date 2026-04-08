@@ -10,15 +10,15 @@ export function SearchBarContextProvider({children}) {
     const [searchTerm,setSearchTerm]=useState('')
 
 
-    function handleSearchTerms(term){
-        setSearchTerm(term)
-    }
-const searchBarContext ={
-    searchTerm:searchTerm,
-    setSearchTerm:handleSearchTerms
-}
+//     function handleSearchTerms(term){
+//         setSearchTerm(term)
+//     }
+// const searchBarContext ={
+//     searchTerm:searchTerm,
+//     setSearchTerm:handleSearchTerms
+
   return (
-    <SearchBarContext.Provider value={searchBarContext}>
+    <SearchBarContext.Provider value={{searchTerm,setSearchTerm}}>
       {children}
     </SearchBarContext.Provider>
   )

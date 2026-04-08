@@ -1,14 +1,14 @@
-import {useState,useEffect} from 'react'
+import {useState,useEffect,useContext} from 'react'
 import MealCard from './MealCard';
 import { Loader2 } from 'lucide-react';
-// import SearchBarContext from '../store/SearchBarContext';
+import SearchBarContext from '../store/SearchBarContext';
 
 
 function MealFetching() {
     const[meals,setMeals]=useState([]);
     const [error,setError] = useState();
     const [isLoading,setIsLoading] = useState(false);
-    // const searchBarContext = useContext(SearchBarContext)
+    const {searchTerm} = useContext(SearchBarContext);
     useEffect(()=>{
        async function fetchMeals(){
 
@@ -30,6 +30,8 @@ function MealFetching() {
         fetchMeals();
 },[])
 
+
+
 if(isLoading){
     return <p className=' flex justify-center gap-2 items-center text-2xl font-thin py-80 text-orange-500'>
         <Loader2 className='animate-[spin_2s_linear_infinite] h-12 w-12 text-orange-500' /> Processing
@@ -45,21 +47,24 @@ if(error){
 );
 }
  
-    // const filteredMeals = meals.filter((meal)=>{
-    //     meal.name.toLowerCase().includes(searchBarContext.searchTerm.toLocaleLowerCase())
-    // })
+const filteredMeals = meals.filter((meal)=>{
+    return meal.name.toLowerCase().includes(searchTerm.toLocaleLowerCase())||
+    meal.description.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
+})
 
   return (
+    <>
       <ul className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:px-6 py-20 '>
-        {meals.map((meal)=>(<li key={meal.id}>
+        {filteredMeals.length > 0 ?  filteredMeals.map((meal)=>(<li key={meal.id}>
             <MealCard meals={meal} />
-        </li>))}
+        </li>))
+        :(<p className=' text-center text-xl lg:text-2xl font-bold  px-0 my-45'>No meals found matching your search.</p>)}
       </ul>
 
       
       
 
-    
+    </>
   )
 }
 
