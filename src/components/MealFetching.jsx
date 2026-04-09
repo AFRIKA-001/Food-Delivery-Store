@@ -14,7 +14,7 @@ function MealFetching() {
 
         setIsLoading(true); 
         try{
-            const response = await fetch("https://food-delivery-store-wj8w.onrender.com/meals");
+            const response = await fetch("https://food-delivery-store-wj8w.onrender.com/meal");
 
             if(!response.ok){
                 throw new Error("The system is currently under maintenance. Please try again later.");
