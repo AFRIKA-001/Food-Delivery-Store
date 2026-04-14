@@ -47,7 +47,7 @@ const buttonStyles = "border rounded bg-amber-400 hover:bg-amber-500 active:bg-a
      <li className='flex' key={item.id}>
     
        <img className='h-30 w-30 rounded-4xl p-1'
-          src={`https://food-delivery-store-wj8w.onrender.com/${item.image}`} alt="food image" />
+          src={item.image_url} alt="food image" />
        <span className='pt-10 px-4 font-sans text-[15px]'>{item.name} - </span> 
 
   
