@@ -46,7 +46,7 @@ function CheckOut() {
         <form ref={formRef} onSubmit={handleSubmit} className=' rounded flex flex-col lg:h-70 lg:w-100 p-4 md:p-4 lg:p-8 my-10 text-xl mx-auto'>
 
             <p className='pb-4 text-2xl font-bold'>Total Amount:{formatPrice.format(cartTotal)}</p>
-            <Inputs label='Full Name' id="user-id" name='fullname' type="text" className='rounded border' />
+            <Inputs label='Full Name' id="user-id" name='fullname' type="text" className='rounded border flex' />
             <Inputs label='E-Mail Address' id="email" name='email' type="email" className='rounded border' />
             <Inputs label='Street' id="street" name='steet' type="text" className="border flex rounded" />
             <div className='lg:flex flex-col gap-4 lg:pt-4 '>
