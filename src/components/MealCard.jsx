@@ -24,7 +24,7 @@ function MealCard({meals}) {
      border-slate-600/10
      
      '>
-        <img  className=" h-60 lg:h-80 w-full object-cover"  src={meals.image_url} alt="food image" />
+        <img  className=" h-80 lg:h-90 w-full object-cover"  src={meals.image_url} alt="food image" />
         <h3 className='italic font-bold'>{meals.name}</h3>
            <p className="text-orange-600">{formatPrice.format(meals.price)}</p>
         <p className="font-normal text-stone-950/400  line-clamp-2">{meals.description}</p>

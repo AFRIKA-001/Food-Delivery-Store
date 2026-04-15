@@ -1,16 +1,12 @@
-import React from 'react'
-import Header from './components/Header.jsx';
+
 import MealFetching from './components/MealFetching.jsx';
-import { CartContextProvider } from './store/CartContext.jsx';
-import { UserProgressContextProvider } from './store/UserProgressContext.jsx';
 import Cart from './components/cart.jsx';
-import { UserAuthContextProvider } from './store/UserAuthContext.jsx';
 import Login from './components/Login.jsx';
 import CheckOut from './components/Checkout.jsx';
 import SuccessMessage from './components/SuccessMessage.jsx';
-import { SearchBarContextProvider } from './store/SearchBarContext.jsx';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import RootLayout from './components/RootLayout.jsx';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -19,9 +15,10 @@ const router = createBrowserRouter([
       { index: true, element: <MealFetching /> },
       {path:'/checkout', element:<CheckOut />},
       {path:'/login', element:<Login />},
-      {path:'/cart', element:<Cart />},  
-    
+      {path:'/cart', element:<Cart />},
+      {path:'/success', element:<SuccessMessage />}
     ]
+   
   }
 ]);
 
