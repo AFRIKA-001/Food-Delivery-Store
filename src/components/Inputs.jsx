@@ -5,7 +5,7 @@ function Inputs({label,id, ...props}) {
 
 
   return (
-    <div>
+    <div className=' text-xl lg:text-2xl '>
       <label htmlFor={id}>{label}</label>
       <input id={id} name={id} {...props} required />
     </div>

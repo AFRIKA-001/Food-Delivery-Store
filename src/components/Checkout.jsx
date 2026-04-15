@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react'
+import  { useContext, useRef } from 'react'
 import Modal from '../UI/Modal'
 import CartContext from '../store/CartContext'
 import Inputs from './Inputs.jsx'
@@ -60,17 +60,17 @@ cartContext.ClearCart();
 //  onClick={handleShowModal}
 
   
-  return <Modal open={userProgessContext.Progress === 'checkout'}className='m-auto w-200 h-200 rounded-lg  backdrop:bg-stone-900/90 bg-slate-200'>
+  return <section className=' w-full h-200 bg-slate-200'>
 
-<h2 className='text-center my-10 text-3xl font-mono text-orange-500'>Checkout</h2>
+<h2 className='text-center text-2xl lg:text-4xl font-mono pt-20 text-orange-500'>Checkout</h2>
 
-<form ref={formRef}  onSubmit={handleSubmit}   className=' rounded flex flex-col lg:h-70 lg:w-100 p-4 md:p-4 lg:p-8 my-10 text-xl'>
+<form ref={formRef}  onSubmit={handleSubmit}   className=' rounded flex flex-col lg:h-70 lg:w-100 p-4 md:p-4 lg:p-8 my-10 text-xl mx-auto'>
 
 <p className='pb-4 text-2xl font-bold'>Total Amount:{formatPrice.format(cartTotal)}</p>
 <Inputs label='Full Name' id="user-id"  name='fullname' type="text" className='rounded border'   />
 <Inputs label='E-Mail Address' id="email" name='email' type="email"  className='rounded border'  />
 <Inputs label='Street' id="street" name='steet' type="text"  className="border flex rounded"  />
-<div className='lg:flex gap-4 lg:pt-4 '>
+<div className='lg:flex flex-col gap-4 lg:pt-4 '>
     <Inputs label='Postal Code' id="postal-code" name='postal' type="text"  className='border line-clamp-1 rounded '  />
     <Inputs label='Phone Number' id="city"  type="number" name='phone number' className='border rounded flex' />
 </div>
@@ -79,7 +79,7 @@ cartContext.ClearCart();
      <button   className='border rounded bg-amber-300 hover:bg-amber-500 active:bg-amber-600'>Submit Order</button>
 </div>
 </form>
-  </Modal>
+  </section>
     
 
 
