@@ -1,15 +1,12 @@
 import { createContext, useState } from "react";
 
 
-const UserLoginContext = createContext({
-     Login:'',
-    showLogin: ()=>{},
-    hideLogin:()=>{}
-});
+const UserAuthContext = createContext();
 
 
- export function LoginContextProvider({children}) {
+ export function UserAuthContextProvider({children}) {
     const [userLogin,setUserLogin]=useState('');
+    
 
     function ShowLogin(){
         setUserLogin('login');
@@ -28,10 +25,10 @@ const UserLoginContext = createContext({
 
 
   return (
-    <UserLoginContext.Provider value={userLoginContext}>
+    <UserAuthContext.Provider value={userLoginContext}>
       {children}
-    </UserLoginContext.Provider>
+    </UserAuthContext.Provider>
   )
 }
 
-export default UserLoginContext;
+export default UserAuthContext;

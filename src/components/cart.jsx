@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import Modal from '../UI/Modal.jsx'
 import CartContext from '../store/CartContext.jsx'
 import UserProgressContext from '../store/UserProgressContext.jsx'
+import { Link } from 'react-router-dom';
 
 
 
@@ -18,9 +19,9 @@ function Cart() {
     return totalPrice + item.price * item.quantity;
    },0)
 
-function CloseCart (){
-    userProgressContext.hideCart();
-}
+// function CloseCart (){
+//     userProgressContext.hideCart();
+// }
 
 function addItems(item){
   cartContext.AddItems({...item,quantity:1})
@@ -30,25 +31,25 @@ function removeItems(id){
 }
 
 
-function goToCheckOut(){
-  userProgressContext.showCheckOut();
-}
+// function goToCheckOut(){
+//   userProgressContext.showCheckOut();
+// }
 
 
 
 
 const buttonStyles = "border rounded bg-amber-400 hover:bg-amber-500 active:bg-amber-600 p-1 gap-6 w-40 text-slate-100 text-xl"
 
-  return <Modal open={userProgressContext.Progress === "cart"} className="lg:w-205 md:w-40 h-125 mx-auto my-auto backdrop:bg-stone-900/90 rounded-lg bg-slate-300 scrollbar-none">
-    <div className=' p-2 my-4 '>
+  return <section open={userProgressContext.Progress === "cart"} className="w-full  h-240 mx-auto my-auto backdrop:bg-stone-900/90 rounded-lg  scrollbar-none">
+    <div className=' py-20  lg:mx-20'>
 <h1 className='text-3xl font-bold font-mono py- text-center'>Your Cart Items</h1>
 <ul className='font-bold text-xl  '>
     { cartContext.items.map((item)=>(
-     <li className='flex' key={item.id}>
+     <li className='flex gap-4' key={item.id}>
     
        <img className='h-30 w-30 rounded-4xl p-1'
           src={item.image_url} alt="food image" />
-       <span className='pt-10 px-4 font-sans text-[15px]'>{item.name} - </span> 
+       <span className=' flex items-center max-w-13 font-thin text-sm lg:text-lg '>{item.name} </span> 
 
   
        <div className='flex md:gap-2 lg:gap-4 '>
@@ -65,10 +66,15 @@ const buttonStyles = "border rounded bg-amber-400 hover:bg-amber-500 active:bg-a
     ))}
 </ul>
 <p className='text-3xl font-serif font-extrabold tracking-tight border-t pt-2 '>Total: {formatPrice.format(cartTotal)}</p>
-<button onClick={CloseCart} className={buttonStyles}>close</button>
- {cartContext.items.length > 0 &&<button  onClick={goToCheckOut} className={buttonStyles}>Go to Checkout</button>}
+<button className={buttonStyles}>
+  <Link to="/">Back</Link>
+
+</button>
+ {cartContext.items.length > 0 &&<button className={buttonStyles}>
+  <Link to="/checkout">Go to Checkout</Link>
+</button>}
 </div>
-  </Modal>
+  </section>
     
       
     

@@ -21,9 +21,9 @@ const formatPrice = new Intl.NumberFormat("en-Kenya",{
     return totalPrice + item.price * item.quantity;
    },0);
 
-   function handleClose(){
-    userProgessContext.hideCheckOut()
-   }
+//    function handleClose(){
+//     userProgessContext.hideCheckOut()
+//    }
 
  function handleSubmit(e) {
     e.preventDefault();
@@ -75,7 +75,7 @@ cartContext.ClearCart();
     <Inputs label='Phone Number' id="city"  type="number" name='phone number' className='border rounded flex' />
 </div>
 <div className='pt-4 flex gap-6 '>
-    <button type='button' onClick={handleClose} className='border rounded bg-gray-400 hover:bg-gray-600 active:bg-gray-900' >close</button>
+    {/* <button type='button' onClick={handleClose} className='border rounded bg-gray-400 hover:bg-gray-600 active:bg-gray-900' >close</button> */}
      <button   className='border rounded bg-amber-300 hover:bg-amber-500 active:bg-amber-600'>Submit Order</button>
 </div>
 </form>

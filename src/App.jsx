@@ -4,30 +4,30 @@ import MealFetching from './components/MealFetching.jsx';
 import { CartContextProvider } from './store/CartContext.jsx';
 import { UserProgressContextProvider } from './store/UserProgressContext.jsx';
 import Cart from './components/cart.jsx';
-import { LoginContextProvider } from './store/LoginContext.jsx';
+import { UserAuthContextProvider } from './store/UserAuthContext.jsx';
 import Login from './components/Login.jsx';
 import CheckOut from './components/Checkout.jsx';
 import SuccessMessage from './components/SuccessMessage.jsx';
 import { SearchBarContextProvider } from './store/SearchBarContext.jsx';
-
+import { createBrowserRouter,RouterProvider } from 'react-router-dom';
+import RootLayout from './components/RootLayout.jsx';
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <RootLayout />,
+    children: [
+      { index: true, element: <MealFetching /> },
+      {path:'/checkout', element:<CheckOut />},
+      {path:'/login', element:<Login />},
+      {path:'/cart', element:<Cart />},  
+    
+    ]
+  }
+]);
 
 function App() {
   return (
-    <SearchBarContextProvider>
-    <LoginContextProvider>
-      <UserProgressContextProvider>
-    <CartContextProvider>
-    <Header />
-    <MealFetching />  
-    <Cart/>
-    <CheckOut/>
-    <SuccessMessage/>
-    <Login/>
-    </CartContextProvider>
-    </UserProgressContextProvider>
-    </LoginContextProvider>
-    </SearchBarContextProvider>
-   
+    <RouterProvider router={router} />
   );
 }
 

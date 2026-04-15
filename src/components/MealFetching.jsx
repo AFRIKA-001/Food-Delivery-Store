@@ -13,6 +13,7 @@ function MealFetching() {
     const {searchTerm} = useContext(SearchBarContext);
     useEffect(()=>{
        async function fetchMeals(){
+        setIsLoading(true);
      const {data,error} = await supabase
      .from('meals')
      .select('*');

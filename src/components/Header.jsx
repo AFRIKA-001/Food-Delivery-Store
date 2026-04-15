@@ -2,8 +2,9 @@ import { Search,ShoppingCart ,LogInIcon} from "lucide-react";
 import { useContext } from "react";
 import CartContext from "../store/CartContext.jsx";
 import UserProgressContext from "../store/UserProgressContext.jsx";
-import UserLoginContext from "../store/LoginContext.jsx";
+import UserLoginContext from "../store/UserAuthContext.jsx";
 import SearchBarContext from "../store/SearchBarContext.jsx";
+import { Link } from "react-router-dom";
 function Header() {
   const cartContext =useContext(CartContext);
   const userProgressContext = useContext(UserProgressContext)
@@ -29,7 +30,7 @@ const {setSearchTerm} = useContext(SearchBarContext)
 
 
   return (
-    <header className="lg:bg-amber-500 md:bg-amber-300  rounded fixed z-50 w-full flex lg:p-4 items-center my-1 shadow-md">
+    <header className="lg:bg-amber-500 md:bg-amber-300  rounded fixed z-50 w-full flex lg:p-4 items-center  shadow-md">
     
            <h1 className="lg:text-3xl md:text-xl font-bold italic text-gray-800 "> <span className="text-red-500 font-bold">JA</span>HA Foods</h1>
            <div className="flex mx-auto lg:w-150">
@@ -38,7 +39,9 @@ const {setSearchTerm} = useContext(SearchBarContext)
            </div>
       
         <button  onClick={handleShowCart} className=" h-8 w-9 ml-auto cursor-pointer active:bg-amber-700 rounded mx-4 border shadow-md bg-amber-500 flex text-white">
-          <ShoppingCart className="h-6 w-8" /><span className="ml-1 font-extrabold rounded-sm h-5 w-3 text-center text-stone-900 text-sm">{totalCartItems}</span>
+         <Link to="/cart"><ShoppingCart className="h-6 w-8" />
+        </Link>
+        <span className="ml-1 font-extrabold rounded-sm h-5 w-3 text-center text-stone-900 text-sm">{totalCartItems}</span>
         </button>
         <button>
          <LogInIcon onClick={handleShowLogin} className="cursor-pointer active:text-amber-400"/>
