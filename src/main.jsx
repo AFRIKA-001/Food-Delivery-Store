@@ -1,23 +1,24 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
 import { CartContextProvider } from './store/CartContext.jsx'
 import { UserProgressContextProvider } from './store/UserProgressContext.jsx'
 import { UserAuthContextProvider } from './store/UserAuthContext.jsx'
 import { SearchBarContextProvider } from './store/SearchBarContext.jsx'
+import { RouterProvider } from 'react-router-dom'
+import { router } from './components/Routing.jsx'
 
 createRoot(document.getElementById('root')).render(
 
   <StrictMode>
-    <SearchBarContextProvider>
-      <UserAuthContextProvider>
+    <UserAuthContextProvider>
+      <SearchBarContextProvider>
         <UserProgressContextProvider>
           <CartContextProvider>
-            <App />
+            <RouterProvider router={router} />
           </CartContextProvider>
         </UserProgressContextProvider>
-      </UserAuthContextProvider>
-    </SearchBarContextProvider>
+      </SearchBarContextProvider>
+    </UserAuthContextProvider>
   </StrictMode>,
 )

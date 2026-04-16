@@ -35,7 +35,7 @@ const [isLoading,setIsLoading] = useState(false);
  }
   return (
     <div className="lg:h-[100vh] w-full my-30 lg:my-45 bg-slate-00">
-        <form onSubmit={handleSignUp} className=" w-full border rounded flex flex-col border-amber-400 py-10 lg:py-40 lg:h-100 lg:w-200 mx-auto justify-center md:p-4">
+        <form onSubmit={handleSignUp} className=" w-full border rounded-xl lg:rounded-2xl flex flex-col border-amber-400 py-10 lg:py-40 lg:h-100 lg:w-200 mx-auto justify-center md:p-4">
             <h1 className="mt-2 text-3xl font-mono text-center text-orange-500 pb-4">Sign Up</h1>
             <div className=" mx-auto ">
                  <Inputs onChange={(e) => setUsername(e.target.value)} label='username' id='username' type='text' className='border rounded outline-1 text-stone-950 flex' />

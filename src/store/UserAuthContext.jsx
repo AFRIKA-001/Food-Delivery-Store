@@ -1,34 +1,93 @@
-import { createContext, useState } from "react";
+import { createContext, useState ,useEffect} from "react";
+import { supabase } from "../supabaseClient";
 
 
-const UserAuthContext = createContext();
+const UserAuthContext = createContext({
+  signOut:()=>{},
+  signIn:()=>{},
+  signup:()=>{}
 
+});
 
- export function UserAuthContextProvider({children}) {
-    const [userLogin,setUserLogin]=useState('');
-    
+ export function UserAuthContextProvider({children}) { 
+    const[session ,setSession] = useState(null)
 
-    function ShowLogin(){
-        setUserLogin('login');
+ // SIGN UP GOES HERE
+
+ const signup = async (email,password,username)=>{
+  const{data,error} = await supabase.auth.signUp({
+    email:email,
+    password:password,
+    options:{
+      data:{
+        display_name:username
+      }
     }
-    function HideLogin(){
-        setUserLogin('')
+  });
+  if(error){
+    console.log("There was an error signing up",error);
+    return{success:false ,error}
+  }
+  return{success:true ,data} 
+  };
+//------------------------------------------------------------->
+
+
+
+  //SIGN IN GOES HERE
+
+  const signIn = async (Email,password)=>{
+    try{
+    const {data,error} =  await supabase.auth.signInWithPassword({
+      email:Email,
+      password:password
+    });
+    if(error){
+      console.error("There was an error signing in",error);
+      return{success:false,error:error.message}
     }
+    console.log("User signed in successfully",data);
+    return{success:true,data}
+  }
+  catch(error){
+    console.error("There was an error signing in",error);
+  };
+}
+//------------------------------------------------------------------>
+//SESSION
+  useEffect(()=>{
+    supabase.auth.getSession().then(({data:{session}})=>{
+      setSession(session)
+    })
+    supabase.auth.onAuthStateChange((_event,session)=>{
+      setSession(session)
+    })
 
-    const userLoginContext ={
-        Login:userLogin,
-        ShowLogin,
-        HideLogin
+  },[]);
+//-------------------------------------------------------------------->
+
+  //SIGN OUT GOES HERE
+
+  const signOut = async()=>{
+    const {error}= await supabase.auth.signOut();
+    if(error){
+      console.error("There was an error signing out",error);
     }
+  }
 
-
-
+  const userAuthcontext ={
+    session,
+    signup,
+     signIn,
+    signOut,
+  
+   
+  }
 
   return (
-    <UserAuthContext.Provider value={userLoginContext}>
+    <UserAuthContext.Provider value={userAuthcontext}> 
       {children}
     </UserAuthContext.Provider>
   )
 }
-
-export default UserAuthContext;
+ export default UserAuthContext;

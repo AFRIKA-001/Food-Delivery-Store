@@ -1,14 +1,15 @@
-import { Search,ShoppingCart ,LogInIcon} from "lucide-react";
+import { Search,ShoppingCart ,LogOut} from "lucide-react";
 import { useContext } from "react";
 import CartContext from "../store/CartContext.jsx";
 import UserProgressContext from "../store/UserProgressContext.jsx";
-import UserLoginContext from "../store/UserAuthContext.jsx";
 import SearchBarContext from "../store/SearchBarContext.jsx";
 import { Link } from "react-router-dom";
+import UserAuthContext from "../store/UserAuthContext.jsx";
 function Header() {
   const cartContext =useContext(CartContext);
   const userProgressContext = useContext(UserProgressContext)
-  const userLoginContext = useContext(UserLoginContext)
+  const userAuthContext = useContext(UserAuthContext)
+  
 
 
   const totalCartItems = cartContext.items.reduce((totalNumberOfItems,item)=>{
@@ -19,15 +20,11 @@ function handleShowCart(){
   userProgressContext.showCart();
   
 }
-function handleShowLogin(){
-  // The login context logic will go here
-  userLoginContext.ShowLogin();
-}
-// function handleChange(event){
-//   searchBarContext.setSearchTerm(event.target.value)
-// }
 const {setSearchTerm} = useContext(SearchBarContext)
 
+const handleLogOut =()=>{
+  userAuthContext.signOut();
+}
 
   return (
     <header className="lg:bg-amber-500 md:bg-amber-300  rounded fixed z-50 w-full flex lg:p-4 items-center  shadow-md">
@@ -44,7 +41,7 @@ const {setSearchTerm} = useContext(SearchBarContext)
         <span className="ml-1 font-extrabold rounded-sm h-5 w-3 text-center text-stone-900 text-sm">{totalCartItems}</span>
         </button>
         <button>
-         <LogInIcon onClick={handleShowLogin} className="cursor-pointer active:text-amber-400"/>
+         <LogOut onClick={handleLogOut}  className="cursor-pointer active:text-amber-400 transition-transform duration-300 hover:rotate-90"/>
         </button>
    
      
