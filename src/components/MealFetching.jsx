@@ -4,7 +4,9 @@ import { Loader2 } from 'lucide-react';
 import SearchBarContext from '../store/SearchBarContext';
 import { supabase } from '../supabaseClient';
 
+
 function MealFetching() {
+
     const[meals,setMeals]=useState([]);
     const [isLoading,setIsLoading] = useState(false);
     const {searchTerm} = useContext(SearchBarContext);
@@ -38,9 +40,10 @@ const filteredMeals = meals.filter((meal)=>{
     meal.description.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
 })
 
+
   return (
     <>
-      <ul className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:px-6 py-20 '>
+      <ul className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:px-6 py-0 '>
         {filteredMeals.length > 0 ?  filteredMeals.map((meal)=>(<li key={meal.id}>
             <MealCard meals={meal} />
         </li>))

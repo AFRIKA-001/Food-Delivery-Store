@@ -6,11 +6,21 @@ body{
 
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
+    display: none; 
   }
 
   .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
   }
+}
+@theme {
+  /* Define the keyframes */
+  @keyframes marquee {
+    from { transform: translateX(0%); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Define the utility class name */
+  --animate-marquee: marquee 2s linear infinite;
 }
