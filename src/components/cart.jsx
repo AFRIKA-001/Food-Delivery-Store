@@ -67,7 +67,7 @@ const buttonStyles = "border rounded bg-amber-400 hover:bg-amber-500 active:bg-a
 </ul>
 <p className='text-3xl font-serif font-extrabold tracking-tight border-t pt-2 '>Total: {formatPrice.format(cartTotal)}</p>
 <button className={buttonStyles}>
-  <Link to="/">Back</Link>
+  <Link to="/mealfetching">Back</Link>
 
 </button>
  {cartContext.items.length > 0 &&<button className={buttonStyles}>
