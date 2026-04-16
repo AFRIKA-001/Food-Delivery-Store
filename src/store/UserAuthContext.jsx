@@ -1,5 +1,6 @@
 import { createContext, useState ,useEffect} from "react";
 import { supabase } from "../supabaseClient";
+import { Loader2 } from "lucide-react";
 
 
 const UserAuthContext = createContext({
@@ -11,6 +12,7 @@ const UserAuthContext = createContext({
 
  export function UserAuthContextProvider({children}) { 
     const[session ,setSession] = useState(null)
+    const [loading ,setLoading] =useState(true)
 
  // SIGN UP GOES HERE
 
@@ -56,10 +58,12 @@ const UserAuthContext = createContext({
 //SESSION
   useEffect(()=>{
     supabase.auth.getSession().then(({data:{session}})=>{
-      setSession(session)
+      setSession(session);
+      setLoading(false)
     })
     supabase.auth.onAuthStateChange((_event,session)=>{
       setSession(session)
+      setLoading(false)
     })
 
   },[]);
@@ -79,13 +83,14 @@ const UserAuthContext = createContext({
     signup,
      signIn,
     signOut,
+    loading
   
    
   }
 
   return (
     <UserAuthContext.Provider value={userAuthcontext}> 
-      {children}
+      {!loading?children:<Loader2/>}
     </UserAuthContext.Provider>
   )
 }

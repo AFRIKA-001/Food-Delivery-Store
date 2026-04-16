@@ -34,11 +34,6 @@ function CheckOut() {
     }
 
 
-
-
-
-
-
     return <section className=' w-full h-200 bg-slate-200'>
 
         <h2 className='text-center text-2xl lg:text-4xl font-mono pt-20 text-orange-500'>Checkout</h2>
