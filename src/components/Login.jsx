@@ -32,7 +32,7 @@ setError('failed to login,try again later',err)
   return ( 
   <section  className='h-100 max-w-md space-y-4 my-30 m-auto  rounded-xl bg-slate-300'>
     <h1 className='text-3xl font-sans text-center p-4'>Login</h1>
-    <form onSubmit={handleLogin} className=' rounded flex flex-col lg:h-70 lg:w-100 mx-auto md:p-4 lg:p-8'>
+    <form onSubmit={handleLogin} className=' max-w-md space-y-4 bg-slate-300  rounded-xl lg:rounded-2xl flex flex-col py-10 lg:py-40 lg:h-100 w-70 lg:w-200 mx-auto justify-center md:p-4'>
         <label className=' font-medium mb-2 uppercase'>email</label>
         <input onChange={(e)=>setEmail(e.target.value)} className='border rounded outline-1 mb-2' type="email" required/>
         <label className=' font-medium mb-2 uppercase'>password</label>

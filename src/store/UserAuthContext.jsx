@@ -25,7 +25,6 @@ const UserAuthContext = createContext({
     }
   });
   if(error){
-    console.log("There was an error signing up",error);
     return{success:false ,error}
   }
   return{success:true ,data} 
@@ -45,8 +44,8 @@ const UserAuthContext = createContext({
     if(error){
       console.error("There was an error signing in",error);
       return{success:false,error:error.message}
-    }
-    console.log("User signed in successfully",data);
+     }
+    // console.log("User signed in successfully",data);
     return{success:true,data}
   }
   catch(error){
