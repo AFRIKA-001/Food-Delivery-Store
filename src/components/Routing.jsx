@@ -17,8 +17,8 @@ export const router = createBrowserRouter([
         path: '/',
         element: <RootLayout />,
         children: [
-            { path: '/cart', element: <Cart /> },
-            { path: '/checkout', element: <CheckOut /> },
+            { path: '/cart', element: <ProtectedRoutes><Cart /> </ProtectedRoutes>},
+            { path: '/checkout', element: <ProtectedRoutes><CheckOut /> </ProtectedRoutes>},
             { path: '/mealfetching', element:<ProtectedRoutes><MealFetching /></ProtectedRoutes>  },
         ]
     },
