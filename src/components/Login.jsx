@@ -1,24 +1,49 @@
-import React, {  } from 'react'
-// import UserLoginContext from '../store/UserAuthContext'
-import Modal from '../UI/Modal'
-import { Link } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import UserAuthContext from '../store/UserAuthContext';
+import {Link,useNavigate } from 'react-router-dom';
 function Login() {
-function handleLogin(event){
+  const [email,setEmail]=useState('');
+  const[password,setPassword]=useState('');
+  const [error,setError]=useState(null);
+  const [isLoading,setIsLoading]=useState(false);
+
+const userAuthContext=useContext(UserAuthContext);
+const navigate = useNavigate();
+
+const  handleLogin = async (event) =>{
+  setIsLoading(true)
 event.preventDefault();
+setError(null);
+try{
+const results = await userAuthContext.signIn(email,password);
+if(results && results.success){
+  navigate('/mealfetching');
+}else{
+  setError(results.error||'invalid login credentials')
 }
+
+}catch(err){
+setError('failed to login,try again later',err)
+}finally{
+  setIsLoading(false);
+}
+}
+
   return ( 
-  <section  className='h-100 w-200 my-30 m-auto backdrop:bg-stone-900/90 rounded bg-slate-300'>
+  <section  className='h-100 max-w-md space-y-4 my-30 m-auto  rounded-xl bg-slate-300'>
     <h1 className='text-3xl font-sans text-center p-4'>Login</h1>
     <form onSubmit={handleLogin} className=' rounded flex flex-col lg:h-70 lg:w-100 mx-auto md:p-4 lg:p-8'>
         <label className=' font-medium mb-2 uppercase'>email</label>
-        <input className='border rounded outline-1 mb-2' type="email" required/>
+        <input onChange={(e)=>setEmail(e.target.value)} className='border rounded outline-1 mb-2' type="email" required/>
         <label className=' font-medium mb-2 uppercase'>password</label>
-        <input className='border rounded outline-1 ' type="password" required />
-        <p className='p-4'>Don't have an account? <a className='text-red-700' href="#">click here</a></p>
-        <button type='reset' className='bg-amber-500 rounded-4xl active:bg-amber-700 w-50 mx-auto hover:bg-amber-600'>
-         <Link to='/mealfetching' >Create Account</Link> </button>
+        <input onChange={(e)=>setPassword(e.target.value)} className='border rounded outline-1 ' type="password" required />
+        <p className='p-4'>Don't have an account? <Link to='/signup' className='text-red-700' >sign up</Link></p>
+        <button disabled={isLoading} type='submit' className='bg-amber-500 rounded-4xl active:bg-amber-700 w-50 mx-auto hover:bg-amber-600 transition-colors duration-300'>
+         Login 
+        </button>
+        {error && <p className='text-center text-red-600'>{error}</p>}
     </form>
- <button ></button>
+ 
   </section>
     
   )
