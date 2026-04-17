@@ -12,7 +12,7 @@ function MarqueeAnimation() {
     ]
   return (
     <>
-    <div className='flex  relative  overflow-x-hidden bg-orange-100 py-3 border-y border-orange-200'>
+    <div className='flex  relative  overflow-x-hidden bg-yellow-500 py-3 border-y border-orange-200'>
     <div>
         <ul className='flex gap-4 pt-20  animate-marquee whitespace-nowrap'>
         {Productcards.map((item)=>(<li key={item.id}>
