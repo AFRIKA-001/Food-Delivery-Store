@@ -20,19 +20,19 @@ export default defineConfig({
         name: 'JAHA Food Delivery',
         short_name: 'JAHA',
         description: 'Sovereign Food Delivery',
-        theme_color: '#000000',
-        background_color: 'orange',
+        theme_color: 'black',
+        background_color: 'yellow',
         display: 'standalone',
         scope: '/',
         start_url: '/',
         icons: [
           {
-            src: 'image.png',
+            src: 'myLogo.png',
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: 'image.png',
+            src: 'myLogo.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable' // Helps the icon look good on all Android shapes
