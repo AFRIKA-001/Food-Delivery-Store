@@ -27,7 +27,6 @@ function MealFetching() {
         fetchMeals();
 },[])
 
-console.log(meals);
 
 if(isLoading){
     return <p className=' flex justify-center gap-2 items-center text-2xl font-thin py-80 text-orange-500'>
