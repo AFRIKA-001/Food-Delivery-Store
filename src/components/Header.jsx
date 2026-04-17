@@ -40,8 +40,8 @@ function Header() {
         <input onChange={(e) => setSearchTerm(e.target.value)} type="search" placeholder="Search..." className="bg-white text-gray-800 placeholder:text-gray-500 border border-transparent focus:outline-none  rounded-r-md md:w-full " />
       </div>
 
-      <button onClick={handleShowCart} className=" h-8 w-9 ml-auto cursor-pointer active:bg-amber-700 rounded mx-4 border shadow-md bg-amber-500 flex text-white">
-        <Link to="/cart"><ShoppingCart className="h-6 w-8" />
+      <button onClick={handleShowCart} className=" h-8 w-9 ml-auto cursor-pointer active:bg-amber-700 rounded mx-4 border shadow-md bg-amber-500 flex text-orange-400">
+        <Link to="/cart"><ShoppingCart className="h-6 w-8 text-orange-700 hover:animate-marquee" />
         </Link>
         <span className="ml-1 font-extrabold rounded-sm h-5 w-3 text-center text-stone-900 text-sm">{totalCartItems}</span>
       </button>
