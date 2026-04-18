@@ -3,7 +3,7 @@ import MealCard from './MealCard';
 import { Loader2 } from 'lucide-react';
 import SearchBarContext from '../store/SearchBarContext';
 import { supabase } from '../supabaseClient';
-
+import myJahaIcon from "../../public/imagecopy.png"
 
 function MealFetching() {
 
@@ -30,7 +30,7 @@ function MealFetching() {
 
 if(isLoading){
     return <p className=' flex justify-center gap-2 items-center text-2xl font-thin py-80 text-orange-500'>
-        <Loader2 className='animate-[spin_2s_linear_infinite] h-12 w-12 text-orange-500' /> Processing
+        <img src={myJahaIcon} className='animate-spin invert rounded-full h-12 w-12 text-orange-500' /> Processing
         </p>
  }
 
