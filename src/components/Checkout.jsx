@@ -1,9 +1,10 @@
-import { useContext, useRef } from 'react'
+import { useContext, useRef, useState } from 'react'
 import Modal from '../UI/Modal'
 import CartContext from '../store/CartContext'
 import Inputs from './Inputs.jsx'
 import UserProgressContext from '../store/UserProgressContext.jsx'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
+import SuccessMessage from './SuccessMessage.jsx'
 
 
 function CheckOut() {
@@ -11,6 +12,7 @@ function CheckOut() {
     const cartContext = useContext(CartContext);
     const userProgessContext = useContext(UserProgressContext);
     const formRef = useRef()
+    const [success,setSuccess]=useState(false)
 
     const formatPrice = new Intl.NumberFormat("en-Kenya", {
         style: "currency",
@@ -23,6 +25,7 @@ function CheckOut() {
 
     function handleSubmit(e) {
         e.preventDefault();
+        setSuccess(true)
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData.entries());
         userProgessContext.ShowSuccessMessage();
@@ -48,12 +51,13 @@ function CheckOut() {
                 <Inputs label='Postal Code' id="postal-code" name='postal' type="text" className='border line-clamp-1 rounded ' />
                 <Inputs label='Phone Number' id="city" type="number" name='phone number' className='border rounded flex' />
             </div>
-            <div className='pt-4 flex gap-6 '>
-                {/* <button type='button' onClick={handleClose} className='border rounded bg-gray-400 hover:bg-gray-600 active:bg-gray-900' >close</button> */}
-                <button className='border rounded bg-amber-300 hover:bg-amber-500 active:bg-amber-600'>
-                    Submit Order
-                </button>
+             <div className='pt-4 flex gap-6 '>
+            <button className='border rounded bg-amber-300 hover:bg-amber-500 active:bg-amber-600'>
+                   {!success ? <p>Submit Order</p>:<Navigate to='/successmessage'/>}
+            </button>
+
             </div>
+
         </form>
     </section>
 

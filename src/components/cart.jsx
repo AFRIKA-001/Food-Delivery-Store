@@ -47,7 +47,7 @@ const buttonStyles = "border rounded bg-amber-400 hover:bg-amber-500 active:bg-a
     { cartContext.items.map((item)=>(
      <li className='flex gap-4' key={item.id}>
     
-       <img className='h-30 w-30 rounded-4xl p-1'
+       <img className='h-30 w-30 rounded-4xl p-1 object-cover'
           src={item.image_url} alt="food image" />
        <span className=' flex items-center max-w-13 font-normal text-sm lg:text-lg '>{item.name} </span> 
 
@@ -68,8 +68,8 @@ const buttonStyles = "border rounded bg-amber-400 hover:bg-amber-500 active:bg-a
 <p className=' text-lg lg:text-3xl font-serif font-extrabold tracking-tight border-t pt-2 '>Total: {formatPrice.format(cartTotal)}</p>
 <button className={buttonStyles}>
   <Link to="/mealfetching">Back</Link>
-
 </button>
+  
  {cartContext.items.length > 0 &&<button className={buttonStyles}>
   <Link to="/checkout">Go to Checkout</Link>
 </button>}

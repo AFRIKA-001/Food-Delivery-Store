@@ -30,10 +30,13 @@ function Header() {
     <header className="lg:bg-amber-500 md:bg-amber-300  rounded fixed z-50 w-full flex lg:p-4 items-center  shadow-md">
 
       <h1 className="lg:text-3xl md:text-xl font-bold italic text-gray-800 "> 
-      <span className="text-red-600 font-bold">J</span> 
+        <Link to='/mealfetching'>
+        <span className="text-red-600 font-bold">J</span> 
       <span className="text-pink-600">A</span> 
       <span className="text-purple-400">H</span>
-      <span className="text-yellow-300">A</span>      
+      <span className="text-yellow-300">A</span>  
+        </Link>
+          
       </h1>
       <div className="flex mx-auto lg:w-150">
         <Search className="text-gray-500 bg-white h-9 w-8 rounded-l-sm" />
