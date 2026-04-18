@@ -15,7 +15,7 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'] // This caches all your core files for offline use
       },
-      includeAssets: ['favicon.svg', 'icons.svg', 'image.png'],
+      includeAssets: ['favicon.svg', 'icons.svg', 'imagecopy.png'],
       manifest: {
         name: 'JAHA Food Delivery',
         short_name: 'JAHA',
@@ -27,12 +27,12 @@ export default defineConfig({
         start_url: '/',
         icons: [
           {
-            src: 'myLogo.png',
+            src: 'imagecopy.png',
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: 'myLogo.png',
+            src: 'imagecopy.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable' // Helps the icon look good on all Android shapes
