@@ -15,13 +15,13 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'] // This caches all your core files for offline use
       },
-      includeAssets: ['favicon.svg', 'icons.svg', 'imagecopy.png'],
+      includeAssets: ['favicon.svg', 'icons.svg', 'Jaha.png'],
       manifest: {
         name: 'JAHA Food Delivery',
         short_name: 'JAHA',
         description: 'Sovereign Food Delivery',
         theme_color: 'black',
-        background_color: 'yellow',
+        background_color:'orange',
         display: 'standalone',
         scope: '/',
         start_url: '/',
@@ -32,7 +32,7 @@ export default defineConfig({
             type: 'image/png'
           },
           {
-            src: 'imagecopy.png',
+            src: 'Jaha.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable' // Helps the icon look good on all Android shapes
