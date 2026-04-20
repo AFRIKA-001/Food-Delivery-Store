@@ -27,7 +27,7 @@ export default defineConfig({
         start_url: '/',
         icons: [
           {
-            src: 'imagecopy.png',
+            src: 'Jaha.png',
             sizes: '192x192',
             type: 'image/png'
           },
