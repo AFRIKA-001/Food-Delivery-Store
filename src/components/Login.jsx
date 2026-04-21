@@ -17,7 +17,7 @@ setError(null);
 try{
 const results = await userAuthContext.signIn(email,password);
 if(results && results.success){
-  navigate('/mealfetching');
+  navigate('/mealfetching/:');
 }else{
   setError(results.error||'invalid login credentials')
 }

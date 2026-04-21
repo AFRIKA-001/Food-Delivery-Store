@@ -30,7 +30,7 @@ function Header() {
     <header className="lg:bg-amber-500 md:bg-amber-300  rounded fixed z-50 w-full flex lg:p-4 items-center  shadow-md">
 
       <h1 className="lg:text-3xl md:text-xl font-bold italic text-gray-800 "> 
-        <Link to='/mealfetching'>
+        <Link to='/mealfetching/:'>
         <span className="text-red-600 font-bold">J</span> 
       <span className="text-pink-600">A</span> 
       <span className="text-purple-400">H</span>

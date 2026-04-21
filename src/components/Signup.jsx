@@ -24,7 +24,7 @@ const [isLoading,setIsLoading] = useState(false);
     try {
         const result = await userAuthContext.signup(email,password,username);
         if(result.success){
-            navigate('/mealFetching'); 
+            navigate('/mealFetching/:'); 
         }
         
     } catch (error) {
