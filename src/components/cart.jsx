@@ -13,7 +13,7 @@ const formatPrice = new Intl.NumberFormat("en-Kenya",{
 
 function Cart() {
    const cartContext = useContext(CartContext)
-   const userProgressContext = useContext(UserProgressContext)
+  //  const userProgressContext = useContext(UserProgressContext)
 
    const cartTotal = cartContext.items.reduce((totalPrice,item)=>{
     return totalPrice + item.price * item.quantity;
@@ -40,7 +40,7 @@ function removeItems(id){
 
 const buttonStyles = "border rounded bg-amber-400 hover:bg-amber-500 active:bg-amber-600 p-1 gap-6 lg:w-40 text-stone-800 lg:text-xl"
 
-  return <section open={userProgressContext.Progress === "cart"} className="w-full  h-240 mx-auto my-auto backdrop:bg-stone-900/90 rounded-lg  scrollbar-none">
+  return <section  className="w-full  h-240 mx-auto my-auto backdrop:bg-stone-900/90 rounded-lg  scrollbar-none">
     <div className=' py-20  lg:mx-20'>
 <h1 className='text-lg lg:text-3xl font-bold font-mono py- text-center'>Your Cart Items</h1>
 <ul className='font-bold text-xl  '>

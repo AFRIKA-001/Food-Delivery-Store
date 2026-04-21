@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
-body{
-    background-color:rgb(243, 243, 242);
-}
+
 
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
@@ -24,3 +22,5 @@ body{
   /* Define the utility class name */
   --animate-marquee: marquee 2s linear infinite;
 }
+
+  
