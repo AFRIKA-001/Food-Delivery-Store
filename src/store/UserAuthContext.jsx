@@ -90,8 +90,8 @@ const UserAuthContext = createContext({
 
   return (
     <UserAuthContext.Provider value={userAuthcontext}> 
-      {!loading?children:<Loader2/>}
-    </UserAuthContext.Provider>
+      {!loading?children:<Loader2 className="flex justify-center mx-auto animate-spin my-60" size={30}/>}
+    </UserAuthContext.Provider> 
   )
 }
  export default UserAuthContext;

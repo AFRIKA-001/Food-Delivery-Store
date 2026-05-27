@@ -1,9 +1,11 @@
-import {useState,useEffect,useContext} from 'react'
-import MealCard from './MealCard';
+import {useState,useEffect,useContext,lazy,Suspense} from 'react'
 import { Loader2 } from 'lucide-react';
 import SearchBarContext from '../store/SearchBarContext';
 import { supabase } from '../supabaseClient';
 import myJahaIcon from "../../public/imagecopy.png"
+
+
+const MealCard = lazy(()=>import("./MealCard"))
 
 function MealFetching() {
 
@@ -29,8 +31,8 @@ function MealFetching() {
 
 
 if(isLoading){
-    return <p className=' flex justify-center gap-2 items-center text-2xl font-thin py-80 text-orange-500'>
-        <img src={myJahaIcon} className='animate-spin invert rounded-full h-12 w-12 text-orange-500' /> Processing
+    return <p className=' flex justify-center gap-2 items-center text-2xl font-thin py-80 text-orange-600'>
+     <Loader2 size={24} className='animate-spin' /> Processing
         </p>
  }
 
@@ -42,12 +44,16 @@ const filteredMeals = meals.filter((meal)=>{
 
   return (
     <>
-      <ul className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:px-6 py-0 '>
+    <Suspense fallback={<Loader2 className='flex justify-center my-60 animate-spin mx-auto' />}>
+    <ul className=' grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 lg:px-6 py-0 '>
         {filteredMeals.length > 0 ?  filteredMeals.map((meal)=>(<li key={meal.id}>
             <MealCard meals={meal} />
         </li>))
         :(<p className=' text-center text-xl lg:text-2xl font-bold  my-45'>No meals found matching your search.</p>)}
       </ul>
+    
+    </Suspense>
+      
 
       
       
