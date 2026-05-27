@@ -1,7 +1,7 @@
 
 import { useContext, useState } from "react";
 import CartContext from "../store/CartContext";
-
+import toast from "react-hot-toast";
 const formatPrice = new Intl.NumberFormat("en-us", {
   style: "currency",
   currency: "ksh",
@@ -15,8 +15,10 @@ function MealCard({ meals }) {
   function handleAddMealToCart() {
     if(!addedToCart){
     cartContext.AddItems(meals);
+    toast.success(`${meals.name} added to cart successfully`)
     }else{
       cartContext.RemoveItems(meals.id)
+      toast.error(`${meals.name} removed from cart`)
     }
     setAddedToCart(prev => !prev)
   }
