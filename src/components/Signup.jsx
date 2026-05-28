@@ -38,7 +38,7 @@ function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-amber-100 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-linear-to-br from-orange-50 via-white to-amber-100 flex items-center justify-center px-4">
       
       <form
         onSubmit={handleSignUp}

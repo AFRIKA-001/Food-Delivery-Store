@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
             { path: '/cart', element: <ProtectedRoutes><Cart /> </ProtectedRoutes>},
             { path: '/checkout', element: <ProtectedRoutes><CheckOut /> </ProtectedRoutes>},
             {path:'/meals', element:<ProtectedRoutes><MealFetching /></ProtectedRoutes>},
-            { path: '/meals/poducts/:id', element:<ProtectedRoutes><MealDetails /></ProtectedRoutes>  },
+            { path: '/meals/products/:id', element:<ProtectedRoutes><MealDetails /></ProtectedRoutes>  },
             
         ]
     },

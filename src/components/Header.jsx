@@ -1,13 +1,11 @@
 import { Search, ShoppingCart, LogOut } from "lucide-react";
 import { useContext } from "react";
 import CartContext from "../store/CartContext.jsx";
-import UserProgressContext from "../store/UserProgressContext.jsx";
 import SearchBarContext from "../store/SearchBarContext.jsx";
 import { Link } from "react-router-dom";
 import UserAuthContext from "../store/UserAuthContext.jsx";
 function Header() {
   const cartContext = useContext(CartContext);
-  const userProgressContext = useContext(UserProgressContext)
   const userAuthContext = useContext(UserAuthContext)
 
 
@@ -16,10 +14,7 @@ function Header() {
     return totalNumberOfItems + item.quantity;
   }, 0)
 
-  function handleShowCart() {
-    userProgressContext.showCart();
-
-  }
+ 
   const { setSearchTerm } = useContext(SearchBarContext)
 
   const handleLogOut = () => {
@@ -27,23 +22,44 @@ function Header() {
   }
 
   return (
-    <header className="lg:bg-amber-500 md:bg-amber-300  rounded fixed z-50 w-full flex lg:p-4 items-center  shadow-md">
+   <header className="lg:bg-amber-500 md:bg-amber-300  rounded fixed z-50 w-full flex lg:p-4 items-center  shadow-md">
+    <h1 className="group lg:text-4xl md:text-3xl text-2xl font-extrabold tracking-wide">
+  <Link
+    to="/meals"
+    className="
+      flex items-center
+      transition-all duration-300
+      hover:scale-105
+    "
+  >
+    <span className="bg-linear-to-r from-red-500 via-orange-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-sm">
+      J
+    </span>
 
-      <h1 className="lg:text-3xl md:text-xl font-bold italic text-gray-800 "> 
-        <Link to='/mealfetching/:'>
-        <span className="text-red-600 font-bold">J</span> 
-      <span className="text-pink-600">A</span> 
-      <span className="text-purple-400">H</span>
-      <span className="text-yellow-300">A</span>  
-        </Link>
-          
-      </h1>
+    <span className="bg-linear-to-r from-pink-500 to-rose-400 bg-clip-text text-transparent drop-shadow-sm">
+      A
+    </span>
+
+    <span className="bg-linear-to-r from-purple-500 to-indigo-400 bg-clip-text text-transparent drop-shadow-sm">
+      H
+    </span>
+
+    <span className="bg-linear-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent drop-shadow-sm">
+      A
+    </span>
+
+    <span className="ml-2 text-sm font-medium text-gray-400 tracking-[0.25em] uppercase hidden md:block">
+      Foods
+    </span>
+  </Link>
+</h1>
+
       <div className="flex mx-auto lg:w-150">
         <Search className="text-gray-500 bg-white h-9 w-8 rounded-l-sm" />
         <input onChange={(e) => setSearchTerm(e.target.value)} type="search" placeholder="Search..." className="bg-white text-gray-800 placeholder:text-gray-500 border border-transparent focus:outline-none  rounded-r-md md:w-full " />
       </div>
 
-      <button onClick={handleShowCart} className=" h-8 w-9 ml-auto cursor-pointer active:bg-amber-700 rounded mx-4 border shadow-md bg-amber-500 flex text-orange-400">
+      <button  className=" h-8 w-9 ml-auto cursor-pointer active:bg-amber-700 rounded mx-4 border shadow-md bg-amber-500 flex text-orange-400">
         <Link to="/cart"><ShoppingCart className="h-6 w-8 text-orange-700 hover:animate-marquee" />
         </Link>
         <span className="ml-1 font-extrabold rounded-sm h-5 w-3 text-center text-stone-900 text-sm">{totalCartItems}</span>

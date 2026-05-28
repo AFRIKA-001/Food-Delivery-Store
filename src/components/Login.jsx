@@ -32,7 +32,7 @@ function Login() {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-orange-100 flex items-center justify-center px-4">
+    <section className="min-h-screen bg-linear-to-br from-amber-50 via-white to-orange-100 flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white shadow-2xl rounded-3xl border border-gray-100 p-8 md:p-10">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 tracking-tight">
