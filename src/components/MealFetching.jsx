@@ -2,7 +2,6 @@ import {useState,useEffect,useContext,lazy,Suspense} from 'react'
 import { Loader2 } from 'lucide-react';
 import SearchBarContext from '../store/SearchBarContext';
 import { supabase } from '../supabaseClient';
-import myJahaIcon from "../../public/imagecopy.png"
 
 
 const MealCard = lazy(()=>import("./MealCard"))

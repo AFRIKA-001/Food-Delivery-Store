@@ -1,10 +1,10 @@
-import { useContext, useState } from 'react';
-import UserAuthContext from '../store/UserAuthContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { useContext, useState } from "react";
+import UserAuthContext from "../store/UserAuthContext";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -20,12 +20,12 @@ function Login() {
       const results = await userAuthContext.signIn(email, password);
 
       if (results && results.success) {
-        navigate('/mealfetching/:');
+        navigate("/meals");
       } else {
-        setError(results.error || 'invalid login credentials');
+        setError(results.error || "invalid login credentials");
       }
     } catch (err) {
-      setError('failed to login,try again later', err);
+      setError("failed to login,try again later", err);
     } finally {
       setIsLoading(false);
     }
@@ -33,9 +33,7 @@ function Login() {
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-orange-100 flex items-center justify-center px-4">
-      
       <div className="w-full max-w-md bg-white shadow-2xl rounded-3xl border border-gray-100 p-8 md:p-10">
-        
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 tracking-tight">
             Welcome Back
@@ -46,11 +44,7 @@ function Login() {
           </p>
         </div>
 
-        <form
-          onSubmit={handleLogin}
-          className="flex flex-col gap-5"
-        >
-          
+        <form onSubmit={handleLogin} className="flex flex-col gap-5">
           <div className="flex flex-col gap-2">
             <label className="text-sm font-semibold uppercase tracking-wide text-gray-700">
               Email
@@ -65,7 +59,6 @@ function Login() {
             />
           </div>
 
-          
           <div className="flex flex-col gap-2">
             <label className="text-sm font-semibold uppercase tracking-wide text-gray-700">
               Password
@@ -85,19 +78,17 @@ function Login() {
             type="submit"
             className="bg-amber-500 hover:bg-amber-600 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-xl transition-all duration-300 shadow-lg shadow-amber-200"
           >
-            {isLoading ? 'Logging in...' : 'Login'}
+            {isLoading ? "Logging in..." : "Login"}
           </button>
 
-          
           {error && (
             <p className="text-center text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg py-2 px-3">
               {error}
             </p>
           )}
 
-          
           <p className="text-center text-gray-600 text-sm mt-2">
-            Don't have an account?{' '}
+            Don't have an account?{" "}
             <Link
               to="/signup"
               className="text-amber-600 hover:text-amber-700 font-semibold"
@@ -144,7 +135,7 @@ export default Login;
 // }
 // }
 
-//   return ( 
+//   return (
 //   <section  className='min-h-screen max-w-md space-y-7 flex flex-col justify-center m-auto border border-amber-400 rounded-xl bg-white-400/20 '>
 //     <h1 className='text-3xl font-sans text-center p-4'>Login</h1>
 //     <form onSubmit={handleLogin} className=' max-w-md space-y-4   rounded-xl lg:rounded-2xl flex flex-col py-10 lg:py-40 lg:h-100 w-70 lg:w-200 mx-auto justify-center md:p-4'>
@@ -154,13 +145,13 @@ export default Login;
 //         <input onChange={(e)=>setPassword(e.target.value)} className='border rounded outline-1 pl-1' type="password" required />
 //         <p className='p-4'>Don't have an account? <Link to='/signup' className='text-red-700' >sign up</Link></p>
 //         <button disabled={isLoading} type='submit' className='bg-amber-500 rounded-4xl active:bg-amber-700 w-50 mx-auto hover:bg-amber-600 transition-colors duration-300'>
-//          Login 
+//          Login
 //         </button>
 //         {error && <p className='text-center text-red-600'>{error}</p>}
 //     </form>
- 
+
 //   </section>
-    
+
 //   )
 // }
 

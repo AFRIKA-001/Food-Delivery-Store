@@ -25,7 +25,7 @@ function Signup() {
       );
 
       if (result.success) {
-        navigate('/mealFetching/:');
+        navigate('/meals');
       }
     } catch (error) {
       setError(
