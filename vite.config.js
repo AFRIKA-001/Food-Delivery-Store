@@ -17,9 +17,9 @@ export default defineConfig({
       },
       includeAssets: ['favicon.svg', 'icons.svg', 'Jaha.png'],
       manifest: {
-        name: 'JAHA Food Delivery',
+        name: 'JAHA Food Delivery Store',
         short_name: 'JAHA',
-        description: 'Sovereign Food Delivery',
+        description: 'Sovereign Food Delivery App',
         theme_color: 'black',
         background_color:'orange',
         display: 'standalone',
@@ -27,16 +27,12 @@ export default defineConfig({
         start_url: '/',
         icons: [
           {
-            src: 'Jaha.png',
+            src: 'jaha.png',
             sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: 'Jaha.png',
-            sizes: '512x512',
             type: 'image/png',
-            purpose: 'any maskable' // Helps the icon look good on all Android shapes
-          }
+            purpose:'any maskable'
+          },
+          
         ]
       }
     }),

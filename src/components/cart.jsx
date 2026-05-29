@@ -107,7 +107,7 @@ function Cart() {
             {cartContext.items.length === 0 ? 
             <div>
              
-<Link to="/mealFetching/:" >
+<Link to="/meals" >
               <button className=' flex items-center gap-2 hover:scale-105 active:scale-95 active:bg-orange-300 bg-orange-500 text-white px-7 py-2 rounded-2xl '>
                 <MoveLeft size={16}/>
                continue shopping

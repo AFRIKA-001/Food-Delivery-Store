@@ -22,7 +22,7 @@ function Header() {
   }
 
   return (
-   <header className="lg:bg-amber-500 md:bg-amber-300  rounded fixed z-50 w-full flex lg:p-4 items-center  shadow-md">
+   <header className=" md:bg-amber-300  rounded fixed z-50 w-full flex lg:p-4 items-center  shadow-md">
     <h1 className="group lg:text-4xl md:text-3xl text-2xl font-extrabold tracking-wide">
   <Link
     to="/meals"
@@ -60,7 +60,7 @@ function Header() {
       </div>
 
       <button  className=" h-8 w-9 ml-auto cursor-pointer active:bg-amber-700 rounded mx-4 border shadow-md bg-amber-500 flex text-orange-400">
-        <Link to="/cart"><ShoppingCart className="h-6 w-8 text-orange-700 hover:animate-marquee" />
+        <Link to="/cart"><ShoppingCart className="h-6 w-8 text-orange-700 hover:scale-105" />
         </Link>
         <span className="ml-1 font-extrabold rounded-sm h-5 w-3 text-center text-stone-900 text-sm">{totalCartItems}</span>
       </button>
