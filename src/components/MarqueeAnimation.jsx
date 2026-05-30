@@ -1,40 +1,49 @@
+import MarqueeImages from "./marqueeImages";
 
-import MarqueeImages from './marqueeImages'
 function MarqueeAnimation() {
-  const Productcards = [
-    { id: 1, image: '🍊' },
-    { id: 2, image: '🍉' },
-    { id: 3, image: '🍓' },
-    { id: 4, image: '🍎' },
-    { id: 5, image: '🍑' },
-    { id: 6, image: '🍇' },
-    { id: 7, image: '🥕' },
-    { id: 8, image: '🫐' },
-    { id: 9, image: '🍋' },
-    { id: 10, image: '🫑' },
-    { id: 11, image: '🌶️' },
+  const productCards = [
+    { id: 1, image: "🍊" },
+    { id: 2, image: "🍉" },
+    { id: 3, image: "🍓" },
+    { id: 4, image: "🍎" },
+    { id: 5, image: "🍑" },
+    { id: 6, image: "🍇" },
+    { id: 7, image: "🥕" },
+    { id: 8, image: "🫐" },
+    { id: 9, image: "🍋" },
+    { id: 10, image: "🫑" },
+    { id: 11, image: "🌶️" },
+  ];
 
-  ]
   return (
-    <>
-      <div className='flex px-4 relative  overflow-x-hidden bg-yellow-500 py-3 border-y border-orange-200'>
-        <div>
-          <ul className='flex gap-8 pt-20  animate-marquee whitespace-nowrap'>
-            {Productcards.map((item) => (<li key={item.id}>
+    <section className="py-22 bg-linear-to-r from-orange-400 via-yellow-300 to-orange-400 border-y border-orange-100 overflow-hidden">
+
+      <h2 className="text-center text-2xl md:text-3xl font-bold text-gray-800 mb-8">
+        Fresh Ingredients Delivered Daily
+      </h2>
+
+      <div className="relative flex overflow-hidden">
+
+        <ul className="flex min-w-full gap-8 animate-marquee">
+          {productCards.map((item) => (
+            <li key={item.id}>
               <MarqueeImages items={item} />
-            </li>))}
-          </ul>
-        </div>
-        <div>
-          <ul className='flex gap-4 pt-20 animate-marquee whitespace-nowrap'>
-            {Productcards.map((item) => (<li key={item.id}>
+            </li>
+          ))}
+        </ul>
+
+        <ul className="flex min-w-full gap-8 animate-marquee">
+          {productCards.map((item) => (
+            <li key={`duplicate-${item.id}`}>
               <MarqueeImages items={item} />
-            </li>))}
-          </ul>
-        </div>
+            </li>
+          ))}
+        </ul>
+
       </div>
-    </>
-  )
+
+    </section>
+  );
 }
 
-export default MarqueeAnimation
+export default MarqueeAnimation;
