@@ -45,7 +45,7 @@ function MealCard({ meals }) {
           h-full
           w-full
           object-cover
-          group-hover:scale-110
+          group-hover:scale-115
           transition-transform
           duration-700
         "
