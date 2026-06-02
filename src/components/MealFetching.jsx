@@ -1,64 +1,113 @@
-import {useState,useEffect,useContext,lazy,Suspense} from 'react'
-import { Loader2 } from 'lucide-react';
-import SearchBarContext from '../store/SearchBarContext';
-import { supabase } from '../supabaseClient';
+import { useState, useEffect, useContext, lazy, Suspense } from "react";
+import { Loader2 } from "lucide-react";
+import SearchBarContext from "../store/SearchBarContext";
+import { supabase } from "../supabaseClient";
 
-
-const MealCard = lazy(()=>import("./MealCard"))
+const MealCard = lazy(() => import("./MealCard"));
 
 function MealFetching() {
+  const [meals, setMeals] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const { searchTerm } = useContext(SearchBarContext);
 
-    const[meals,setMeals]=useState([]);
-    const [isLoading,setIsLoading] = useState(false);
-    const {searchTerm} = useContext(SearchBarContext);
-    useEffect(()=>{
-       async function fetchMeals(){
-        setIsLoading(true);
-     const {data,error} = await supabase
-     .from('meals')
-     .select('*');
-     if(error){
-        console.error("Error fetching meals from Supabase:", error.message);
-     }else{
+  useEffect(() => {
+    async function fetchMeals() {
+      setIsLoading(true);
+
+      const { data, error } = await supabase
+        .from("meals")
+        .select("*");
+
+      if (error) {
+        console.error(
+          "Error fetching meals from Supabase:",
+          error.message
+        );
+      } else {
         setMeals(data);
-     }
-    
-        setIsLoading(false);
-     }
-        fetchMeals();
-},[])
+      }
 
+      setIsLoading(false);
+    }
 
-if(isLoading){
-    return <p className=' flex justify-center gap-2 items-center text-2xl font-thin py-80 text-orange-600'>
-     <Loader2 size={24} className='animate-spin' /> Processing
+    fetchMeals();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="flex min-h-[70vh] items-center justify-center">
+        <p className="flex items-center gap-3 text-lg md:text-xl font-medium text-orange-500">
+          <Loader2 size={28} className="animate-spin" />
+          Processing meals...
         </p>
- }
+      </div>
+    );
+  }
 
-const filteredMeals = meals.filter((meal)=>{
-    return meal.name.toLowerCase().includes(searchTerm.toLocaleLowerCase())||
-    meal.description.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
-})
-
+  const filteredMeals = meals.filter((meal) => {
+    return (
+      meal.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      meal.description
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase())
+    );
+  });
 
   return (
-    <>
-    <Suspense fallback={<Loader2 className='flex justify-center my-60 animate-spin mx-auto' />}>
-    <ul className=' grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 lg:px-6 py-0 '>
-        {filteredMeals.length > 0 ?  filteredMeals.map((meal)=>(<li key={meal.id}>
-            <MealCard meals={meal} />
-        </li>))
-        :(<p className=' text-center text-xl lg:text-2xl font-bold  my-45'>No meals found matching your search.</p>)}
+    <Suspense
+      fallback={
+        <div className="flex min-h-[60vh] items-center justify-center">
+          <Loader2
+            size={40}
+            className="animate-spin text-orange-500"
+          />
+        </div>
+      }
+    >
+      <ul
+        className="
+          mx-auto
+          max-w-7xl
+          grid
+          grid-cols-1
+          sm:grid-cols-2
+          md:grid-cols-3
+          lg:grid-cols-4
+          gap-6
+          md:gap-8
+          px-4
+          md:px-6
+          lg:px-8
+          py-6
+        "
+      >
+        {filteredMeals.length > 0 ? (
+          filteredMeals.map((meal) => (
+            <li key={meal.id}>
+              <MealCard meals={meal} />
+            </li>
+          ))
+        ) : (
+          <p
+            className="
+              col-span-full
+              flex
+              items-center
+              justify-center
+              min-h-[50vh]
+              text-center
+              text-lg
+              md:text-2xl
+              font-semibold
+              text-gray-500
+            "
+          >
+            No meals found matching your search.
+          </p>
+        )}
       </ul>
-    
     </Suspense>
-      
-
-      
-      
-
-    </>
-  )
+  );
 }
 
 export default MealFetching;
