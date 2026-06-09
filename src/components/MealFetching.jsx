@@ -2,6 +2,7 @@ import { useState, useEffect, useContext, lazy, Suspense } from "react";
 import { Loader2 } from "lucide-react";
 import SearchBarContext from "../store/SearchBarContext";
 import { supabase } from "../supabaseClient";
+import Carousel from "./Carousel";
 
 const MealCard = lazy(() => import("./MealCard"));
 
@@ -10,19 +11,20 @@ function MealFetching() {
   const [isLoading, setIsLoading] = useState(false);
   const { searchTerm } = useContext(SearchBarContext);
 
+  const mockSlides = [
+    "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
+  ];
+
   useEffect(() => {
     async function fetchMeals() {
       setIsLoading(true);
 
-      const { data, error } = await supabase
-        .from("meals")
-        .select("*");
+      const { data, error } = await supabase.from("meals").select("*");
 
       if (error) {
-        console.error(
-          "Error fetching meals from Supabase:",
-          error.message
-        );
+        console.error("Error fetching meals from Supabase:", error.message);
       } else {
         setMeals(data);
       }
@@ -47,9 +49,7 @@ function MealFetching() {
   const filteredMeals = meals.filter((meal) => {
     return (
       meal.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      meal.description
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase())
+      meal.description.toLowerCase().includes(searchTerm.toLowerCase())
     );
   });
 
@@ -57,13 +57,17 @@ function MealFetching() {
     <Suspense
       fallback={
         <div className="flex min-h-[60vh] items-center justify-center">
-          <Loader2
-            size={40}
-            className="animate-spin text-orange-500"
-          />
+          <Loader2 size={40} className="animate-spin text-orange-500" />
         </div>
       }
     >
+      <div className="p-8  min-h-screen  flex items-center justify-center">
+        <Carousel
+          slides={mockSlides}
+          autoSlide={true}
+          autoSlideInterval={3000}
+        />
+      </div>
       <ul
         className="
           mx-auto
