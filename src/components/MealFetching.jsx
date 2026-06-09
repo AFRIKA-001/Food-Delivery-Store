@@ -61,7 +61,7 @@ function MealFetching() {
         </div>
       }
     >
-      <div className="p-8  min-h-screen  flex items-center justify-center">
+      <div className="p-8  md:min-h-screen  flex items-center justify-center">
         <Carousel
           slides={mockSlides}
           autoSlide={true}
