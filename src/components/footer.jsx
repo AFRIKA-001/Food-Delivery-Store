@@ -76,8 +76,8 @@ const Footer = () => {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© {currentYear} Jaha Foods. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-slate-300 transition">Privacy Policy</a>
-            <a href="#" className="hover:text-slate-300 transition">Terms of Service</a>
+            <a href="" className="hover:text-slate-300 transition">Privacy Policy</a>
+            <a href="" className="hover:text-slate-300 transition">Terms of Service</a>
           </div>
         </div>
 
