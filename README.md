@@ -7,7 +7,7 @@ A modern full-stack e-commerce platform built with React, Tailwind CSS, and Supa
 
 ## 🚀 Live Demo
 
-[fooddeliveryapplive demo](https://jaha-foods-store.vercel.app)
+[food delivery app live demo](https://jaha-foods-store.vercel.app)
 
 ## 📖 Overview
 
