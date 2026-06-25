@@ -7,7 +7,7 @@ A modern full-stack e-commerce platform built with React, Tailwind CSS, and Supa
 
 ## 🚀 Live Demo
 
-<https://jaha-foods-store.vercel.app>
+[food delivery app live demo] (https://jaha-foods-store.vercel.app)
 
 ## 📖 Overview
 
@@ -61,7 +61,7 @@ src/
 └── App.jsx
 
 ## ⚙️ Installation
-
+```
 git clone <https://github.com/AFRIKA-001/Food-Delivery-Store>
 
 cd Food-Delivery-Store
@@ -69,7 +69,7 @@ cd Food-Delivery-Store
 npm install
 
 npm run dev
-
+```
 ## 🔐 Environment Variables
 
 VITE_SUPABASE_URL=your_url
