@@ -107,6 +107,7 @@ function Header() {
         <ShoppingCart
           size={22}
           className="text-orange-600"
+          
         />
   
         {totalCartItems > 0 && (
